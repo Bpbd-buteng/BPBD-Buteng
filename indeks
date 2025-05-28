@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BPBD Buteng</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #b22222;
+      color: white;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      background: url('https://source.unsplash.com/1600x600/?disaster,indonesia') no-repeat center center/cover;
+      color: white;
+      padding: 6em 2em;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 1em;
+    }
+    .hero a {
+      background: white;
+      color: #b22222;
+      padding: 0.7em 1.5em;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .content {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+    }
+    footer {
+      background-color: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 2em 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>BPBD Buton Tengah</strong></div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tentang</a>
+      <a href="#">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Siap Tanggap Bencana</h1>
+    <p>BPBD Buteng hadir melindungi masyarakat dari risiko bencana alam dan non-alam</p>
+    <a href="#">Lihat Info</a>
+  </section>
+
+  <section class="content">
+    <h2>Tentang BPBD Buteng</h2>
+    <p>
+      Badan Penanggulangan Bencana Daerah (BPBD) Kabupaten Buton Tengah merupakan lembaga pemerintah daerah
+      yang bertugas merencanakan, mengkoordinasikan, dan melaksanakan kegiatan penanggulangan bencana.
+    </p>
+    <p>
+      Kami berkomitmen untuk meningkatkan kapasitas kesiapsiagaan masyarakat dan mempercepat respon saat terjadi bencana.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 BPBD Buton Tengah</p>
+    <p>Email: info@bpbd-buteng.go.id</p>
+  </footer>
+
+</body>
+</html>
