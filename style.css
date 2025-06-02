@@ -1,4 +1,31 @@
-body {
+/* Warna utama dan pendamping khas BPBD */
+:root {
+  --primary-color: #FF6600;  /* Oranye khas BPBD */
+  --secondary-color: #003366;  /* Biru tua */
+  --text-light: #ffffff;
+  --text-dark: #000000;
+}
+
+nav {
+  background-color: var(--primary-color);
+}
+
+nav a {
+  color: var(--text-light);
+}
+
+nav a:hover {
+  background-color: var(--secondary-color);
+}
+
+button, .btn {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+button:hover, .btn:hover {
+  background-color: var(--secondary-color);
+}body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
