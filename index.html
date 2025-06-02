@@ -1,62 +1,936 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BPBD Buton Tengah</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPBD Buton Tengah - Badan Penanggulangan Bencana Daerah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* VARIABEL WARNA */
+        :root {
+            --bpbd-orange: #FF7F00;
+            --bpbd-blue: #0066CC;
+            --bpbd-light-blue: #E6F0FF;
+            --bpbd-light-orange: #FFF0E6;
+            --bpbd-dark: #333333;
+            --bpbd-light: #F5F5F5;
+            --bpbd-white: #FFFFFF;
+        }
+
+        /* RESET & DASAR */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--bpbd-dark);
+            background-color: var(--bpbd-light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--bpbd-blue);
+            display: inline-block;
+            padding: 0 15px;
+            background: var(--bpbd-white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--bpbd-orange), var(--bpbd-blue));
+            z-index: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--bpbd-orange);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #e67300;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-blue {
+            background: var(--bpbd-blue);
+        }
+
+        .btn-blue:hover {
+            background: #0055aa;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--bpbd-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--bpbd-blue);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            color: var(--bpbd-orange);
+            font-size: 0.9rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--bpbd-dark);
+            font-weight: 600;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--bpbd-orange);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--bpbd-orange);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0, 102, 204, 0.8), rgba(0, 102, 204, 0.9)), url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* PROFIL SECTION */
+        .profil {
+            background-color: var(--bpbd-white);
+        }
+
+        .profil-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profil-text {
+            flex: 1;
+        }
+
+        .profil-text h3 {
+            color: var(--bpbd-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .profil-text p {
+            margin-bottom: 20px;
+        }
+
+        .profil-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .profil-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* LAYANAN SECTION */
+        .layanan {
+            background-color: var(--bpbd-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bpbd-light-blue);
+            font-size: 4rem;
+            color: var(--bpbd-blue);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            color: var(--bpbd-blue);
+            margin-bottom: 15px;
+        }
+
+        /* ADUAN SECTION */
+        .aduan {
+            background-color: var(--bpbd-white);
+        }
+
+        .aduan-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--bpbd-blue);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--bpbd-orange);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* KEGIATAN SECTION */
+        .kegiatan {
+            background-color: var(--bpbd-light);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .activity-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .activity-card:hover .activity-image img {
+            transform: scale(1.1);
+        }
+
+        .activity-content {
+            padding: 25px;
+        }
+
+        .activity-date {
+            display: inline-block;
+            background: var(--bpbd-light-orange);
+            color: var(--bpbd-orange);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .activity-content h3 {
+            color: var(--bpbd-blue);
+            margin-bottom: 10px;
+        }
+
+        .view-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* KONTAK SECTION */
+        .kontak {
+            background-color: var(--bpbd-white);
+        }
+
+        .kontak-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .kontak-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .kontak-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .kontak-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bpbd-light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--bpbd-blue);
+        }
+
+        .kontak-text h4 {
+            margin-bottom: 5px;
+            color: var(--bpbd-blue);
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bpbd-blue);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--bpbd-orange);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--bpbd-orange);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--bpbd-orange);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVITAS */
+        @media (max-width: 992px) {
+            .profil-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bpbd-white);
+                flex-direction: column;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 0;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .aduan-container {
+                padding: 25px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <svg width="60" height="60" viewBox="0 0 60 60">
+                        <circle cx="30" cy="30" r="28" fill="#0066CC" />
+                        <path d="M20,20 L40,20 L40,40 L20,40 Z" fill="#FF7F00" />
+                        <circle cx="30" cy="30" r="10" fill="white" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>BPBD BUTON TENGAH</h1>
+                    <span>Badan Penanggulangan Bencana Daerah</span>
+                </div>
+            </div>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#aduan">Pengaduan</a></li>
+                    <li><a href="#kegiatan">Kegiatan</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-  <h1>BPBD Buton Tengah</h1>
-  <p>Pusat Informasi Bencana & Arsip Kegiatan</p>
-</header>
+    <!-- Hero Section -->
+    <section id="beranda" class="hero">
+        <div class="container hero-content">
+            <h1>BPBD BUTON TENGAH</h1>
+            <p>Melayani Masyarakat dengan Tanggap dan Sigap dalam Menghadapi Bencana</p>
+            <div class="hero-buttons">
+                <a href="#aduan" class="btn">Laporkan Bencana</a>
+                <a href="#kegiatan" class="btn btn-blue">Lihat Kegiatan</a>
+            </div>
+        </div>
+    </section>
 
-<nav>
-  <a href="#">Beranda</a>
-  <a href="#layanan">Layanan</a>
-  <a href="#arsip">Arsip</a>
-  <a href="#kontak">Kontak</a>
-</nav>
+    <!-- Profil Section -->
+    <section id="profil" class="profil">
+        <div class="container">
+            <div class="section-title">
+                <h2>Profil BPBD Buton Tengah</h2>
+            </div>
+            <div class="profil-content">
+                <div class="profil-text">
+                    <h3>Selamat Datang di Website Resmi BPBD Buton Tengah</h3>
+                    <p>Badan Penanggulangan Bencana Daerah (BPBD) Kabupaten Buton Tengah merupakan lembaga pemerintah yang bertanggung jawab dalam penanggulangan bencana di wilayah Kabupaten Buton Tengah.</p>
+                    <p>Kami berkomitmen untuk melindungi masyarakat dari ancaman bencana melalui upaya pencegahan, mitigasi, kesiapsiagaan, tanggap darurat, dan pemulihan pasca bencana.</p>
+                    <p>Visi kami adalah mewujudkan masyarakat Buton Tengah yang tangguh dan mandiri dalam menghadapi bencana, dengan misi meningkatkan kapasitas kelembagaan, memberdayakan masyarakat, dan membangun sistem penanggulangan bencana yang terpadu.</p>
+                    <a href="#" class="btn">Selengkapnya</a>
+                </div>
+                <div class="profil-image">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Kantor BPBD">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="layanan">
-  <h2>Layanan Publik</h2>
-  <div class="box">
-    <p><strong>Pengaduan Bencana:</strong> Laporkan kejadian bencana di wilayah Anda melalui formulir pengaduan.</p>
-    <a href="#" class="btn">Laporkan Sekarang</a>
-  </div>
+    <!-- Layanan Section -->
+    <section id="layanan" class="layanan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Kami</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Tanggap Darurat Bencana</h3>
+                        <p>Pelayanan tanggap darurat 24 jam untuk menangani bencana alam dan non-alam di wilayah Buton Tengah.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Arsip Data Bencana</h3>
+                        <p>Pusat data dan informasi bencana yang terintegrasi untuk mendukung perencanaan penanggulangan bencana.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Pelatihan Masyarakat</h3>
+                        <p>Program pelatihan dan simulasi penanggulangan bencana untuk meningkatkan kesiapsiagaan masyarakat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="box">
-    <p><strong>Kontak Darurat:</strong> Hubungi kami 24 jam untuk bantuan kebencanaan.</p>
-    <p>📞 0821-XXXX-XXXX</p>
-  </div>
-</section>
+    <!-- Aduan Section -->
+    <section id="aduan" class="aduan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Pengaduan</h2>
+            </div>
+            <div class="aduan-container">
+                <form id="aduanForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telepon">Nomor Telepon</label>
+                        <input type="tel" id="telepon" name="telepon" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lokasi">Lokasi Kejadian</label>
+                        <input type="text" id="lokasi" name="lokasi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jenis">Jenis Bencana</label>
+                        <select id="jenis" name="jenis" required>
+                            <option value="">Pilih Jenis Bencana</option>
+                            <option value="banjir">Banjir</option>
+                            <option value="tanah-longsor">Tanah Longsor</option>
+                            <option value="kebakaran">Kebakaran</option>
+                            <option value="kecelakaan">Kecelakaan</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="deskripsi">Deskripsi Kejadian</label>
+                        <textarea id="deskripsi" name="deskripsi" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">Kirim Laporan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 
-<section id="arsip">
-  <h2>Arsip Digital</h2>
-  <div class="box">
-    <p><strong>Laporan Kegiatan 2025:</strong> Unduh dokumen kegiatan terbaru.</p>
-    <a href="dokumen/laporan-2025.pdf" class="btn" download>Download PDF</a>
-  </div>
+    <!-- Kegiatan Section -->
+    <section id="kegiatan" class="kegiatan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Arsip Kegiatan</h2>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Simulasi Bencana">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-date">15 Juni 2023</span>
+                        <h3>Simulasi Penanggulangan Bencana Banjir</h3>
+                        <p>Kegiatan simulasi penanggulangan bencana banjir di Desa Labunia melibatkan 150 peserta dari berbagai kalangan.</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pelatihan">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-date">28 Mei 2023</span>
+                        <h3>Pelatihan Tim Reaksi Cepat Bencana</h3>
+                        <p>Pelatihan intensif selama 3 hari bagi Tim Reaksi Cepat BPBD Buton Tengah untuk meningkatkan kemampuan tanggap darurat.</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Penghijauan">
+                    </div>
+                    <div class="activity-content">
+                        <span class="activity-date">10 April 2023</span>
+                        <h3>Penghijauan Daerah Rawan Longsor</h3>
+                        <p>Aksi penghijauan di daerah rawan longsor Kecamatan Mawasangka melibatkan masyarakat dan relawan bencana.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#" class="btn btn-blue">Lihat Semua Kegiatan</a>
+            </div>
+        </div>
+    </section>
 
-  <div class="box">
-    <p><strong>Dokumentasi Foto:</strong> Galeri bencana dan evakuasi lapangan.</p>
-    <a href="galeri.html" class="btn">Lihat Galeri</a>
-  </div>
-</section>
+    <!-- Kontak Section -->
+    <section id="kontak" class="kontak">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontak Kami</h2>
+            </div>
+            <div class="kontak-grid">
+                <div class="kontak-info">
+                    <div class="kontak-item">
+                        <div class="kontak-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="kontak-text">
+                            <h4>Alamat Kantor</h4>
+                            <p>Jalan Poros Labungkari No. 12, Kecamatan Mawasangka, Kabupaten Buton Tengah, Sulawesi Tenggara</p>
+                        </div>
+                    </div>
+                    <div class="kontak-item">
+                        <div class="kontak-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="kontak-text">
+                            <h4>Telepon</h4>
+                            <p>+62 812-3456-7890 (Darurat 24 Jam)</p>
+                            <p>+62 813-4567-8901 (Admin)</p>
+                        </div>
+                    </div>
+                    <div class="kontak-item">
+                        <div class="kontak-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="kontak-text">
+                            <h4>Email</h4>
+                            <p>info@bpbdbutontengah.id</p>
+                            <p>aduan@bpbdbutontengah.id</p>
+                        </div>
+                    </div>
+                    <div class="kontak-item">
+                        <div class="kontak-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="kontak-text">
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 08.00 - 16.00 WITA</p>
+                            <p>Sabtu: 08.00 - 14.00 WITA</p>
+                            <p>Minggu & Hari Libur: Layanan Darurat 24 Jam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255038.61151065716!2d122.49566840000001!3d-5.314158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2da0d18f9b0f0a5f%3A0x1d0e6f4d3f3b3b3b!2sKabupaten%20Buton%20Tengah%2C%20Sulawesi%20Tenggara!5e0!3m2!1sid!2sid!4v1689834567890!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="kontak">
-  <h2>Kontak Kami</h2>
-  <div class="box">
-    <p>Alamat: Kantor BPBD Buton Tengah, Kec. Mawasangka, Sulawesi Tenggara</p>
-    <p>Email: bpbd@buteng.go.id</p>
-  </div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>BPBD Buton Tengah</h3>
+                    <p>Badan Penanggulangan Bencana Daerah Kabupaten Buton Tengah, Provinsi Sulawesi Tenggara.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Menu Utama</h3>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#profil">Profil</a></li>
+                        <li><a href="#layanan">Layanan</a></li>
+                        <li><a href="#aduan">Pengaduan</a></li>
+                        <li><a href="#kegiatan">Kegiatan</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Link Terkait</h3>
+                    <ul>
+                        <li><a href="#">BNPB Nasional</a></li>
+                        <li><a href="#">Pemda Buton Tengah</a></li>
+                        <li><a href="#">BPBD Sulawesi Tenggara</a></li>
+                        <li><a href="#">BMKG</a></li>
+                        <li><a href="#">Basarnas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan Darurat</h3>
+                    <ul>
+                        <li><a href="tel:112">112 - Call Center</a></li>
+                        <li><a href="tel:113">113 - Ambulans</a></li>
+                        <li><a href="tel:115">115 - SAR</a></li>
+                        <li><a href="tel:117">117 - Bencana Alam</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 BPBD Kabupaten Buton Tengah. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
 
-<footer>
-  &copy; 2025 BPBD Buton Tengah | Dibuat untuk layanan publik
-</footer>
-
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Form Submission
+        document.getElementById('aduanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Laporan Anda telah berhasil dikirim! Tim kami akan segera menindaklanjuti.');
+            this.reset();
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
+    </script>
 </body>
 </html>
