@@ -1,11 +1,19 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  position: relative;
-  background-color: #f4f4f4;
-  z-index: 0;
+/* Reset dasar dan font */
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff5f5; /* putih agak merah muda */
+  color: #3b1f1f; /* coklat tua gelap untuk teks agar mudah dibaca */
+  position: relative;
+  z-index: 0;
+  line-height: 1.6;
+}
+
+/* Background logo transparan di seluruh halaman */
 body::before {
   content: "";
   position: fixed;
@@ -15,9 +23,89 @@ body::before {
   height: 100vh;
   background-image: url('images/images.png');
   background-repeat: no-repeat;
-  background-size: 300px;
+  background-size: 250px;
   background-position: center center;
-  opacity: 0.1;
+  opacity: 0.08;
   z-index: -1;
   pointer-events: none;
+}
+
+/* Header */
+header {
+  background-color: #d32f2f; /* merah khas BPBD */
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.8rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Container utama */
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Judul section */
+h1, h2, h3 {
+  color: #b71c1c; /* merah gelap */
+  margin-bottom: 0.5em;
+}
+
+/* Paragraf */
+p {
+  margin-bottom: 1.2em;
+  font-size: 1.1rem;
+}
+
+/* Tombol */
+button, .btn {
+  background-color: #f57c00; /* oranye */
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: #ef6c00;
+}
+
+/* Footer */
+footer {
+  background-color: #d32f2f;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+/* Link */
+a {
+  color: #b71c1c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header {
+    font-size: 1.4rem;
+    padding: 15px 20px;
+  }
+  .container {
+    margin: 15px 10px;
+  }
 }
