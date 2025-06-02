@@ -1,89 +1,87 @@
-/* Warna utama dan pendamping khas BPBD */
-:root {
-  --primary-color: #FF6600;  /* Oranye khas BPBD */
-  --secondary-color: #003366;  /* Biru tua */
-  --text-light: #ffffff;
-  --text-dark: #000000;
+* {
+  box-sizing: border-box;
 }
 
-nav {
-  background-color: var(--primary-color);
-}
-
-nav a {
-  color: var(--text-light);
-}
-
-nav a:hover {
-  background-color: var(--secondary-color);
-}
-
-button, .btn {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-}
-
-button:hover, .btn:hover {
-  background-color: var(--secondary-color);
-}body {
-  font-family: sans-serif;
+body {
   margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-  color: #333;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
 header {
-  background: #e74c3c;
+  background-color: #ff6600;
   color: white;
   padding: 20px;
   text-align: center;
+  background-image: url('images/images.png');
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: 10px center;
+  padding-left: 120px;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+nav {
+  background-color: #e65100;
+  overflow: hidden;
 }
 
 nav a {
+  float: left;
+  display: block;
   color: white;
+  padding: 14px 20px;
   text-decoration: none;
-  font-weight: bold;
 }
 
-main {
+nav a:hover {
+  background-color: #ff8f00;
+}
+
+section {
   padding: 20px;
 }
 
-section.welcome {
-  background: white;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 8px;
+h2 {
+  color: #e65100;
 }
 
-section.info {
-  background: #fefefe;
+.box {
+  background-color: white;
   padding: 15px;
-  border-left: 4px solid #e67e22;
   border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 footer {
-  background: #333;
-  color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 30px;
+  background-color: #e65100;
+  color: white;
 }
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background: url('images/bpbd-logo.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #333;
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ff6600;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #ff8f00;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    padding-left: 20px;
+    background-position: center top;
+    background-size: 80px;
+  }
+  nav a {
+    float: none;
+    text-align: center;
+  }
 }
