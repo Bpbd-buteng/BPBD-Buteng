@@ -2,45 +2,61 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web dengan Background Logo BPBD</title>
-  <style>
-    body {
-      position: relative;
-      margin: 0;
-      min-height: 100vh;
-      background-color: #f0f0f0;
-      font-family: Arial, sans-serif;
-      color: #333;
-      padding: 20px;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('images/images.png') no-repeat center/contain;
-      opacity: 0.2;
-      z-index: -1;
-      pointer-events: none; /* Supaya background tidak ganggu klik */
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    p {
-      max-width: 600px;
-      margin: 20px auto;
-      font-size: 1.2rem;
-      line-height: 1.5;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BPBD Buton Tengah</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Selamat datang di Web BPBD</h1>
-  <p>
-    Ini adalah contoh web yang menggunakan gambar logo BPBD sebagai latar belakang dengan transparansi supaya konten tetap mudah dibaca.
-  </p>
+
+<header>
+  <h1>BPBD Buton Tengah</h1>
+  <p>Pusat Informasi Bencana & Arsip Kegiatan</p>
+</header>
+
+<nav>
+  <a href="#">Beranda</a>
+  <a href="#layanan">Layanan</a>
+  <a href="#arsip">Arsip</a>
+  <a href="#kontak">Kontak</a>
+</nav>
+
+<section id="layanan">
+  <h2>Layanan Publik</h2>
+  <div class="box">
+    <p><strong>Pengaduan Bencana:</strong> Laporkan kejadian bencana di wilayah Anda melalui formulir pengaduan.</p>
+    <a href="#" class="btn">Laporkan Sekarang</a>
+  </div>
+
+  <div class="box">
+    <p><strong>Kontak Darurat:</strong> Hubungi kami 24 jam untuk bantuan kebencanaan.</p>
+    <p>📞 0821-XXXX-XXXX</p>
+  </div>
+</section>
+
+<section id="arsip">
+  <h2>Arsip Digital</h2>
+  <div class="box">
+    <p><strong>Laporan Kegiatan 2025:</strong> Unduh dokumen kegiatan terbaru.</p>
+    <a href="dokumen/laporan-2025.pdf" class="btn" download>Download PDF</a>
+  </div>
+
+  <div class="box">
+    <p><strong>Dokumentasi Foto:</strong> Galeri bencana dan evakuasi lapangan.</p>
+    <a href="galeri.html" class="btn">Lihat Galeri</a>
+  </div>
+</section>
+
+<section id="kontak">
+  <h2>Kontak Kami</h2>
+  <div class="box">
+    <p>Alamat: Kantor BPBD Buton Tengah, Kec. Mawasangka, Sulawesi Tenggara</p>
+    <p>Email: bpbd@buteng.go.id</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 BPBD Buton Tengah | Dibuat untuk layanan publik
+</footer>
+
 </body>
 </html>
