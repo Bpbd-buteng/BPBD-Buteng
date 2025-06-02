@@ -1,97 +1,85 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BPBD Buteng</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPBD Buton Tengah</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      background-color: #f4f4f4;
+      color: #222;
     }
     header {
-      background-color: #b22222;
+      background-color: #FF6600; /* oranye */
       color: white;
-      padding: 1em 2em;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 1em;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      background: url('https://source.unsplash.com/1600x600/?disaster,indonesia') no-repeat center center/cover;
-      color: white;
-      padding: 6em 2em;
+      padding: 2rem 1rem;
       text-align: center;
     }
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
     }
-    .hero p {
-      font-size: 1.2em;
-      margin-bottom: 1em;
+    nav ul li {
+      margin: 0 1rem;
     }
-    .hero a {
-      background: white;
-      color: #b22222;
-      padding: 0.7em 1.5em;
-      border-radius: 5px;
+    nav ul li a {
+      color: white;
       text-decoration: none;
       font-weight: bold;
     }
-    .content {
-      padding: 2em;
-      max-width: 800px;
-      margin: auto;
+    .btn {
+      background-color: #004080; /* biru tua */
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    main {
+      padding: 2rem 1rem;
+    }
+    section {
+      margin-bottom: 2rem;
+      background: white;
+      padding: 1rem;
+      border-left: 5px solid #FF6600;
     }
     footer {
-      background-color: #222;
-      color: #aaa;
+      background-color: #004080; /* biru tua */
+      color: white;
       text-align: center;
-      padding: 2em 1em;
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div><strong>BPBD Buton Tengah</strong></div>
     <nav>
-      <a href="#">Beranda</a>
-      <a href="#">Tentang</a>
-      <a href="#">Kontak</a>
+      <ul>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
     </nav>
-  </header>
-
-  <section class="hero">
     <h1>Siap Tanggap Bencana</h1>
     <p>BPBD Buteng hadir melindungi masyarakat dari risiko bencana alam dan non-alam</p>
-    <a href="#">Lihat Info</a>
-  </section>
+    <a href="#tentang" class="btn">Lihat Info</a>
+  </header>  <main>
+    <section id="tentang">
+      <h2>Tentang BPBD Buteng</h2>
+      <p>Badan Penanggulangan Bencana Daerah (BPBD) Kabupaten Buton Tengah merupakan lembaga pemerintah daerah yang bertugas merencanakan, mengkoordinasikan, dan melaksanakan kegiatan penanggulangan bencana.</p>
+    </section><section id="berita">
+  <h2>Berita Terbaru</h2>
+  <p>Belum ada berita terbaru.</p>
+</section>
 
-  <section class="content">
-    <h2>Tentang BPBD Buteng</h2>
-    <p>
-      Badan Penanggulangan Bencana Daerah (BPBD) Kabupaten Buton Tengah merupakan lembaga pemerintah daerah
-      yang bertugas merencanakan, mengkoordinasikan, dan melaksanakan kegiatan penanggulangan bencana.
-    </p>
-    <p>
-      Kami berkomitmen untuk meningkatkan kapasitas kesiapsiagaan masyarakat dan mempercepat respon saat terjadi bencana.
-    </p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 BPBD Buton Tengah</p>
-    <p>Email: info@bpbd-buteng.go.id</p>
+  </main>  <footer>
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <p>Email: bpbd@buteng.go.id</p>
+    </section>
   </footer>
-
 </body>
 </html>
