@@ -1,85 +1,46 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BPBD Buton Tengah</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web dengan Background Logo BPBD</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      position: relative;
       margin: 0;
-      background-color: #f4f4f4;
-      color: #222;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      padding: 20px;
     }
-    header {
-      background-color: #FF6600; /* oranye */
-      color: white;
-      padding: 2rem 1rem;
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('images/images.png') no-repeat center/contain;
+      opacity: 0.2;
+      z-index: -1;
+      pointer-events: none; /* Supaya background tidak ganggu klik */
+    }
+
+    h1 {
       text-align: center;
     }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-    nav ul li {
-      margin: 0 1rem;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .btn {
-      background-color: #004080; /* biru tua */
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    main {
-      padding: 2rem 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-      background: white;
-      padding: 1rem;
-      border-left: 5px solid #FF6600;
-    }
-    footer {
-      background-color: #004080; /* biru tua */
-      color: white;
-      text-align: center;
-      padding: 1rem;
+
+    p {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1.2rem;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#tentang">Tentang</a></li>
-        <li><a href="#kontak">Kontak</a></li>
-      </ul>
-    </nav>
-    <h1>Siap Tanggap Bencana</h1>
-    <p>BPBD Buteng hadir melindungi masyarakat dari risiko bencana alam dan non-alam</p>
-    <a href="#tentang" class="btn">Lihat Info</a>
-  </header>  <main>
-    <section id="tentang">
-      <h2>Tentang BPBD Buteng</h2>
-      <p>Badan Penanggulangan Bencana Daerah (BPBD) Kabupaten Buton Tengah merupakan lembaga pemerintah daerah yang bertugas merencanakan, mengkoordinasikan, dan melaksanakan kegiatan penanggulangan bencana.</p>
-    </section><section id="berita">
-  <h2>Berita Terbaru</h2>
-  <p>Belum ada berita terbaru.</p>
-</section>
-
-  </main>  <footer>
-    <section id="kontak">
-      <h2>Kontak</h2>
-      <p>Email: bpbd@buteng.go.id</p>
-    </section>
-  </footer>
+  <h1>Selamat datang di Web BPBD</h1>
+  <p>
+    Ini adalah contoh web yang menggunakan gambar logo BPBD sebagai latar belakang dengan transparansi supaya konten tetap mudah dibaca.
+  </p>
 </body>
 </html>
